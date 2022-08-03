@@ -4,7 +4,7 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 
 function CoinItem({ coin }) {
   return (
-    <tr className="h-[60px] border-b overflow-hidden border-gray-300">
+    <tr className="h-[60px] border-b overflow-hidden border-gray-300 px-4">
       <td>
         <PlusCircleIcon className="w-4" />
       </td>
@@ -15,8 +15,8 @@ function CoinItem({ coin }) {
           <p>{coin.name}</p>
         </div>
       </td>
-      <td>{coin.symbol}</td>
-      <td>Rp {coin.current_price}</td>
+      <td>{coin.symbol.toUpperCase()}</td>
+      <td>Rp {coin.current_price.toLocaleString()}</td>
       <td>
         {coin.price_change_percentage_24h > 0 ? (
           <p className="text-green-500">
@@ -28,8 +28,12 @@ function CoinItem({ coin }) {
           </p>
         )}
       </td>
-      <td className="hidden md:table-cell">{coin.total_volume}</td>
-      <td className="hidden md:table-cell">{coin.market_cap}</td>
+      <td className="hidden md:table-cell">
+        {coin.total_volume.toLocaleString()}
+      </td>
+      <td className="hidden md:table-cell">
+        {coin.market_cap.toLocaleString()}
+      </td>
       <td>
         <Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="red" />
