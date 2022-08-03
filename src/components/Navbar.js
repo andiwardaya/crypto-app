@@ -7,7 +7,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-div flex items-center justify-between font-semibold py-3">
+    <div className="rounded-div flex items-center justify-between font-semibold py-3 mb-5 max-w-6xl mx-auto">
       <Link to="/">
         <h1 className="font-bold uppercase">WardayaCrypto</h1>
       </Link>
